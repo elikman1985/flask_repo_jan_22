@@ -1,3 +1,6 @@
-# flask_repo_jan_22
-New repo for Flask app
-Everything is okay
+## flask_repo_jan_22
+
+This repository will have home-tasks from 4-th to 8-th.
+
+```
+Flask and SQL

@@ -1,8 +1,11 @@
 from flask import Flask
+
+from db import execute_query
+from formater import list_rec2html_br
+
 from webargs import fields
 from webargs.flaskparser import use_kwargs
-from db import execute_query
-from formater(SQL) import list_rec2html_br
+
 
 app = Flask(__name__)
 
@@ -29,8 +32,12 @@ def get_genres_duration_sql():
 def get_popular_tracks_sql(count):
 
     if count:
-        sql = 'select t.Name, t.UnitPrice*count(t.Name) from invoices as inv, invoice_items as itm, tracks as t' \
-              'where inv.InvoiceId = itm.InvoiceId and t.TrackId = itm.TrackId group by t.Name having count(t.Name) > 1'
+        sql = """
+            select t.Name, round(t.UnitPrice*count(t.Name), 2)
+            from invoices inv, invoice_items itm, tracks t
+            where inv.InvoiceId = itm.InvoiceId and t.TrackId = itm.TrackId
+            group by t.Name having count(t.Name) > 1
+        """
 
         records = execute_query(sql)
 

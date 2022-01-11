@@ -1,7 +1,7 @@
 from flask import Flask
 
 from db import execute_query
-from formater(SQL) import list_rec2html_br
+from formater_SQL import list_rec2html_br
 
 from webargs import fields
 from webargs.flaskparser import use_kwargs

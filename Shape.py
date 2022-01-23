@@ -5,8 +5,7 @@ class Shape:
 
 
 class Point(Shape):
-    p_dx = 0
-    p_dy = 0
+    pass
 
 
 class Circle(Shape):

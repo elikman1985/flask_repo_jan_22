@@ -5,7 +5,8 @@ class Shape:
 
 
 class Point(Shape):
-    pass
+    def __init__(self, dx, dy):
+        Shape.__init__(self, dx, dy)
 
 
 class Circle(Shape):
